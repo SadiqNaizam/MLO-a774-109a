@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -32,61 +34,39 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.5rem; /* Default light mode radius, will be overridden by .dark if needed, or PRD specific */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 210 20% 17%; /* PRD #1F2937 */
+    --foreground: 0 0% 100%;    /* PRD #FFFFFF */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 20% 24%;         /* PRD #323F4B */
+    --card-foreground: 0 0% 100%; /* PRD #FFFFFF */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 20% 24%;      /* PRD #323F4B */
+    --popover-foreground: 0 0% 100%; /* PRD #FFFFFF */
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 185 97% 42%;      /* PRD #03C9D7 */
+    --primary-foreground: 210 20% 17%; /* PRD #1F2937 for text on primary */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 15% 35%;    /* Derived from surface, e.g. #4A5568 */
+    --secondary-foreground: 0 0% 100%; /* PRD #FFFFFF */
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 20% 24%;        /* PRD #323F4B (surface) for muted backgrounds */
+    --muted-foreground: 210 8% 59%; /* PRD #868E96 (accentGray) for muted text */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 185 97% 42%;       /* PRD #03C9D7 */
+    --accent-foreground: 210 20% 17%; /* PRD #1F2937 for text on accent */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;    /* Standard vibrant red for dark mode e.g. #E53E3E */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive */
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 210 15% 30%;       /* Derived from surface, e.g. #404A54 */
+    --input: 210 15% 30%;        /* Same as border */
+    --ring: 185 97% 42%;         /* PRD #03C9D7 for focus rings */
+    
+    --radius: 0.375rem; /* PRD: rounded-md -> Tailwind md -> 0.375rem */
   }
 }
 
@@ -97,5 +77,8 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
