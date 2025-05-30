@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
 	darkMode: ["class"],
@@ -52,22 +53,21 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+        // Custom colors from PRD
+        'primary-text': '#FFFFFF',      // PRD.designSystem.colorPalette.primaryText
+        'accent-blue': '#03C9D7',       // PRD.designSystem.colorPalette.accentBlue
+        'accent-gray': '#868E96',       // PRD.designSystem.colorPalette.accentGray
+        'chart-lines': '#00A3B7',      // PRD.designSystem.colorPalette.chartLines
+        'surface': '#323F4B',           // PRD.designSystem.colorPalette.surface
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				md: 'calc(var(--radius) - 2px)', // Shadcn medium, PRD default is 'rounded-md' which is 0.375rem (var --radius)
+				sm: 'calc(var(--radius) - 4px)'  // Shadcn small
 			},
+      fontFamily: {
+        sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
